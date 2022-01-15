@@ -84,3 +84,79 @@ let result=await fetch("/addNotes",{
 });
 
 }
+
+async function clicked(id){
+    if(id!=idGroupClicked && idGroupClicked!=-1)
+    {
+        document.getElementById("noteUploadForm").style.display="none";
+        $('.myNoteCardId').remove();
+    }
+    idGroupClicked=id;
+
+    
+}
+
+
+// function to get the list of note
+async function getNote()
+{
+   
+    // getting the group id for which we want the list of note
+    $('.myNoteCardId').remove();
+    let groupd={
+        groupId:idGroupClicked
+    }
+    // fetching the result from the backend
+    let result=await fetch("/getNote/"+idGroupClicked);
+    // converting the result to json
+    let notes=await result.json();
+    // creating empty variable for putting the html in it
+    let html="";
+    // getting the groupname
+    let anchorval=document.getElementById(idGroupClicked).text;
+    // getting the root note tag for the current tag
+    let myNoteCard=document.getElementById("myNoteCard");
+    for(let i=0;i<notes.length;i++)
+    {
+        html=`<div class="container my-3 myNoteCardId" >
+        <div class="card"><br><br>
+        	 <div class="notes-print-text">
+             	 <P>${anchorval}</P>
+             </div>
+        	<div class="date"><br>
+        		<label class="due-date" for="start"><b>Due date<b></label>
+				<p>${notes[i].finishDate}</p>
+        	</div>
+        	
+        
+            <div class="card-body">
+            	<h3 class="heading-text">
+                   <b>${notes[i].title}</b> 
+                </h3><br><br>
+                <p style="text-align: center; " id="">
+                	${notes[i].text}
+            
+                </p>
+            <div class="clearfix">
+        
+ 			</div>
+           <br><br><br><br><br><br>
+           <div>
+           <button class="btn" style="position: absolute; right: 150px;" type="button" ><i class="fa fa-trash" id=${notes[i].id} onClick="del(this.id)"> Delete </i></button>
+      </div>
+           <br><br><br>
+           </div>
+           </div>`;      
+        //    inserting the new component to the html
+           myNoteCard.innerHTML+=html;  
+    }
+        // console.log(html)
+}
+
+
+async function del(id)
+{
+    let result=await fetch("/delNote/"+id);
+    getNote();
+}
+
