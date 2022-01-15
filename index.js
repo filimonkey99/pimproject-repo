@@ -45,3 +45,26 @@ function showNotes() {
 			</div>
 		</div>`;
 	});
+
+	let notesElm = document.getElementById("notes");
+
+	if (notesObj.length != 0) notesElm.innerHTML = html;
+	else
+		notesElm.innerHTML = `Nothing to show!
+		Use "Add a Note" section above to add notes.`;
+}
+
+// Function to delete a note
+function deleteNote(index) {
+	let notes = localStorage.getItem("notes");
+
+	if (notes == null) notesObj = [];
+	else notesObj = JSON.parse(notes);
+
+	notesObj.splice(index, 1);
+
+	localStorage.setItem("notes",
+		JSON.stringify(notesObj));
+
+	showNotes();
+}
