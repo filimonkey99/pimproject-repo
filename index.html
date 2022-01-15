@@ -12,7 +12,107 @@
 	 <link rel = "icon" type = "image/png" href = "/logo.svg">
      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
-<body>
+<body onload="javascript:setGroupList()">
+
+<!--hr class="new5"-->
+<div class="topnav">
+  <a class="active" href="#"> <i class="fa fa-home"></i> Home </a>
+  
+</div>
+
+<dialog id="dialog">
+  <form >
+  <div class="form-group">
+    <label ><b>Group Name</b></label><br>
+    <input type="string" class="form-control" id="groupValue"  placeholder="Enter Group name" name="groupName">
+   
+  </div><br>
+ 
+  <button type="button" class="btn btn-primary" onClick="addGroup()">Submit</button>
+  <button class="btn btn-primary" onclick="window.dialog.close();">close</button>  
+</form>  
+</dialog>
+
+<div class="sidenav" >
+  <div id="groupNamesList"></div>
+
+  <button  class="button button3" onclick="window.dialog.show();">Add New Group +</button>
+</div><br><br><br>
+
+                           
+<div  class="button-task">
+	<button  id = "buttonbar" style="display:none" onclick="w3_open();getNote()" class="btn btn-primary">Add New Note</button>
+</div>
+
+
+<form  >
+<div class="pqe" style="display: none;" id="noteUploadForm">
+  
+    <div class="container my-3">
+        <h3><b>Create Notes</b></h3>
+        <br>
+        <div class="card">
+             <div>
+             	<input type="file" id="myFile" name="filename">
+             </div>
+   				
+  			
+        	<div class="date"><br>
+        		<label class="due-date" for="start"><b>Due date<b></label>
+
+				<input type="date" id="start" name="trip-start" value="2021-12-28" min="2018-01-01" max="2026-12-31">
+        	</div>
+        	
+        	
+            <div class="card-body"><br>
+            	<h5 class="card-text">
+                   <b> Note Title </b> 
+                </h5>
+
+                <div class="form-group">
+                    <textarea class="form-control" 
+                        id="addTitle" rows="1" >
+                    </textarea><br>
+
+                <h5 class="card-text">
+                   <b>Add a Note  </b> 
+                </h5>
+                <div class="form-group">
+                    <textarea class="form-control" 
+                        id="addTxt" rows="3" >
+                    </textarea>
+                </div><br>
+                <button class="btn btn-primary" id="addBtn" style="background-color:green" type="button"  onClick="addNote();getNote()">
+                    Add Note
+                </button>
+            </div>
+        </div>
+        </div>
+        </div>
+                  </div>
+
+</form>  
+
+<br><br><br><br>
+
+<div class="abcd" id="myNoteCard">
+  
     
+           
+             
+          
+</div> 
+
+<script>
+function w3_open() {
+  document.getElementById("noteUploadForm").style.display = "block";
+}
+</script>
+<script>
+function w3_open1() {
+  document.getElementById("buttonbar").style.display = "block";
+}
+</script>
+<script src="./main.js"></script>
 </body>
 </html>
