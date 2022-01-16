@@ -58,13 +58,13 @@ public class Database {
         List<Group> groups=null;
 
         try {
-//            creating the query for  getting the group records
+//            creating the query for getting the group records
             query = conn.prepareStatement("SELECT * FROM GROUPS");
-//            executing the query and saving the result it in the resultset
+//            executing the query and saving the result it in the resultSet
             ResultSet result=query.executeQuery();
 //            converting the result to array type
             Group[] groupsArr= Utils.resultSetToObject(result,Group[].class);
-//            convertig the array type to list type and return it
+//            converting the array type to list type and return it
             groups= List.of(groupsArr);
             return groups;
         } catch (SQLException | JsonProcessingException e) {
@@ -109,7 +109,7 @@ public class Database {
             stat.setInt(1,id);
 //            executing the query and geting the result
             ResultSet result=stat.executeQuery();
-//            converting the resultset to array of note
+//            converting the resultSet to array of note
             Note[] note= Utils.resultSetToObject(result,Note[].class);
 //            converting the array of note to list of note
             notesList=List.of(note);
