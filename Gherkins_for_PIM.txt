@@ -1,0 +1,55 @@
+Gherkins for PIM
+
+Feature - 
+As a user I want to be able to create a new note and delete it, also create a new group.
+
+---------------------------------------------------------
+
+Scenario -
+Create a new note.
+
+Give - 
+On different grouppages.
+That the inputpage is not empty.
+
+When - 
+Note has been written in the input field.
+And add button is pressed
+And Data has been generated for the written note.
+
+Then - 
+The note should be displayed in that specefic grouppage
+And the note should be listed according to creation order
+
+--------------------------------------------------------------
+
+Scenario -
+Succesfully delete an existing note.
+
+Give - 
+User is on specific note.
+
+When - 
+Delete note button is pressed.
+
+Then - 
+All text and files are deleted from the note.
+
+
+----------------------------------------------------------------
+
+Scenario -
+Create another group
+
+Give - 
+User is on the side-navigator
+
+When - 
+Push the button Add New Group
+Specify a new groupname
+And push Submit
+
+Then - 
+A new groupname is created on the side-navigator 
+
+----------------------------------------------------------------
