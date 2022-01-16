@@ -75,7 +75,7 @@ public class Note {
     public void setPath(String path) {
         this.path = path;
     }
-//      function to get the gruopId
+//      function to get the groupId
     public int getGroupId() {
         return groupId;
     }
@@ -99,7 +99,7 @@ public class Note {
     public String getFinishDate() {
         return finishDate;
     }
-//      functoin to set the finnish date of the noyr
+//      function to set the finnish date of the note
     public void setFinishDate(String finishDate) {
         this.finishDate = finishDate;
     }
@@ -108,7 +108,7 @@ public class Note {
     public Note() {
     }
 
-//    overriding the tostring function
+//    overriding the toString function
     @Override
     public String toString() {
         return "Note{" +
