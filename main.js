@@ -5,7 +5,7 @@ async function addGroup(){
 //get the element whose value we want to insert
     let element=document.getElementById("groupValue");
 
-//    create the variabe for it
+//    create the variable for it
     let group={
         groupName:element.value
     }
@@ -55,7 +55,7 @@ function getPhoto()
 //function to add the note to the backend
 async function addNote()
 {
-//get the value for the postion
+//get the value for the position
 // document.getElementById("noteUploadForm").style.display = "none";
     let titleStr=$("#addTitle").val();
     let textStr=$("#addTxt").val();
